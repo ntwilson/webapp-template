@@ -16,7 +16,7 @@
         "react-dom": "^15.1.0"
     },
     "scripts": {
-        "install": "typings install react --save", 
+        "install": "typings install react --save && typings install dt~react-dom --global --save", 
         "prestart": "babel src frontend -d obj && webpack -p",
         "start": "node ./obj/app.js"
     }
