@@ -10,8 +10,17 @@ export function index(response, request) {
 }
 
 export function js(response, request) {
-    response.writeHead(200, {"Content-Type": "text/html"});
+    response.writeHead(200, {"Content-Type": "text/js"});
     const filename = __dirname + '\\Bundle.js';
+    console.log('serving ' + filename);
+
+    const fileStream = fs.createReadStream(filename);
+    fileStream.pipe(response);
+}
+
+export function css(response, request) {
+    response.writeHead(200, {"Content-Type": "text/css"});
+    const filename = __dirname + '\\stylesheet.css';
     console.log('serving ' + filename);
 
     const fileStream = fs.createReadStream(filename);

@@ -2,7 +2,8 @@ import * as requestHandlers from "./requestHandlers";
 
 var handle = {};
 handle["/"] = requestHandlers.index;
-handle["/Bundle.js"] = requestHandlers.js;
+handle["/bundle.js"] = requestHandlers.js;
+handle["/stylesheet.css"] = requestHandlers.css;
 handle["/favicon.ico"] = () => '';
 
 export function route(pathname, response, request) {
