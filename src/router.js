@@ -4,6 +4,7 @@ var handle = {};
 handle["/"] = requestHandlers.index;
 handle["/bundle.js"] = requestHandlers.js;
 handle["/stylesheet.css"] = requestHandlers.css;
+handle["/bootstrap.min.css"] = requestHandlers.bootstrap;
 handle["/favicon.ico"] = () => '';
 
 export function route(pathname, response, request) {

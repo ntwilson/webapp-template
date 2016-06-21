@@ -1,28 +1,26 @@
 import * as fs from 'fs';
 
 export function index(response, request) {
-    response.writeHead(200, {"Content-Type": "text/html"});
-    const filename = __dirname + '\\index.html';
-    console.log('serving ' + filename);
-
-    const fileStream = fs.createReadStream(filename);
-    fileStream.pipe(response);
+    serveFile(response, 'index.html', 'text/html');
 }
 
 export function js(response, request) {
-    response.writeHead(200, {"Content-Type": "text/js"});
-    const filename = __dirname + '\\Bundle.js';
-    console.log('serving ' + filename);
-
-    const fileStream = fs.createReadStream(filename);
-    fileStream.pipe(response);
+    serveFile(response, 'bundle.js', 'text/js');
 }
 
 export function css(response, request) {
-    response.writeHead(200, {"Content-Type": "text/css"});
-    const filename = __dirname + '\\stylesheet.css';
-    console.log('serving ' + filename);
+    serveFile(response, 'stylesheet.css', 'text/css');
+}
 
-    const fileStream = fs.createReadStream(filename);
+export function bootstrap(response, request) { 
+    serveFile(response, "..\\node_modules\\bootstrap\\dist\\css\\bootstrap.min.css", "text/css");
+}
+
+function serveFile(response, filename, contentType) {
+    response.writeHead(200, {"Content-Type": contentType});
+    const filePathName = __dirname + '\\' + filename;
+    console.log('serving ' + filePathName);
+
+    const fileStream = fs.createReadStream(filePathName);
     fileStream.pipe(response);
 }

@@ -9,15 +9,20 @@
         "webpack": "^1.13.1",
         "file-loader": "0.8.5",
         "jsx-loader": "0.13.2",
+        "jasmine": "^2.4.1",
+        "jasmine-core": "^2.4.1",
+        "jasmine-node": "^1.14.5",
         "typings": "^1.0.5"
     },
     "dependencies": {
+        "bootstrap": "^3.3.6",
         "react": "^15.1.0",
         "react-dom": "^15.1.0"
     },
     "scripts": {
-        "install": "typings install react --save && typings install dt~react-dom --global --save", 
+        "install": "typings install react --save && typings install dt~jasmine dt~react-dom --global --save", 
         "prestart": "babel src frontend -d obj && webpack -p",
-        "start": "node ./obj/app.js"
+        "start": "node ./obj/app.js",
+        "run-tests": "babel src frontend -d obj && jasmine-node obj/",
     }
 }
