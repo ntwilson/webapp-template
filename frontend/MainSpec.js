@@ -7,9 +7,9 @@ describe('Main', () => {
         expect(renderedMain.type).toBe('div');
         expect(renderedMain.props.className).toBe('row');
         expect(renderedMain.props.children.length).toBe(3);
-        renderedMain.props.children.forEach((element) => {
+        for (var element of renderedMain.props.children) {
             expect(element.type).toBe('div');
-        });
+        }
         expect(renderedMain.props.children[0].props.children).toBe('hello');
     });
 });

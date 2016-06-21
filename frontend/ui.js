@@ -1,8 +1,13 @@
 import * as ReactDOM from 'react-dom';
-import React from 'react';
+import * as React from 'react';
+import { Router, Route, browserHistory } from 'react-router';
 import Main from './Main';
+import NotFound from './NotFound';
 
 ReactDOM.render(
-    <Main />,
+    <Router>
+        <Route path='/' component={Main} />
+        <Route path='/*' component={NotFound} />
+    </Router>,
     document.getElementById('content')
 );
