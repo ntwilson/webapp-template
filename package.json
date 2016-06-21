@@ -23,6 +23,6 @@
         "install": "typings install react --save && typings install dt~jasmine dt~react-dom --global --save", 
         "prestart": "babel src frontend -d obj && webpack -p",
         "start": "node ./obj/app.js",
-        "run-tests": "babel src frontend -d obj && jasmine-node obj/",
+        "run-tests": "babel src frontend -d obj && jasmine-node obj/"
     }
 }
