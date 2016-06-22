@@ -13,12 +13,12 @@ export function css(response, request) {
 }
 
 export function bootstrap(response, request) { 
-    serveFile(response, "..\\node_modules\\bootstrap\\dist\\css\\bootstrap.min.css", "text/css");
+    serveFile(response, "../node_modules/bootstrap/dist/css/bootstrap.min.css", "text/css");
 }
 
 function serveFile(response, filename, contentType) {
     response.writeHead(200, {"Content-Type": contentType});
-    const filePathName = __dirname + '\\' + filename;
+    const filePathName = __dirname + '/' + filename;
     console.log('serving ' + filePathName);
 
     const fileStream = fs.createReadStream(filePathName);
