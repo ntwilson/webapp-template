@@ -5,7 +5,7 @@
 # Build results
 
 build/
-[Oo]bj/*
+[Oo]bj/
 node_modules/
 typings/
 typings.json

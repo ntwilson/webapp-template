@@ -1,7 +1,11 @@
 import * as fs from 'fs';
 
+import staticIndex from '../static/index.html';
+import staticStyles from '../static/stylesheet.css';
+import staticBootstrap from '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 export function index(response, request) {
-    serveFile(response, 'index.html', 'text/html');
+    serveFile(response, staticIndex, 'text/html');
 }
 
 export function js(response, request) {
@@ -9,16 +13,16 @@ export function js(response, request) {
 }
 
 export function css(response, request) {
-    serveFile(response, 'stylesheet.css', 'text/css');
+    serveFile(response, staticStyles, 'text/css');
 }
 
 export function bootstrap(response, request) { 
-    serveFile(response, "../node_modules/bootstrap/dist/css/bootstrap.min.css", "text/css");
+    serveFile(response, staticBootstrap, "text/css");
 }
 
 function serveFile(response, filename, contentType) {
     response.writeHead(200, {"Content-Type": contentType});
-    const filePathName = __dirname + '/' + filename;
+    const filePathName = filename;
     console.log('serving ' + filePathName);
 
     const fileStream = fs.createReadStream(filePathName);

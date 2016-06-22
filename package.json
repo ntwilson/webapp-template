@@ -1,31 +1,31 @@
 {
-    "name": "website-template",
-    "version": "0.0.0",
-    "typings": "./typings/index.d.ts",
-    "devDependencies": {
-        "babel-cli": "^6.10.1",
-        "babel-preset-es2015": "^6.9.0",
-        "babel-preset-react": "^6.5.0",
-        "webpack": "^1.13.1",
-        "file-loader": "0.8.5",
-        "jsx-loader": "0.13.2",
-        "jasmine": "^2.4.1",
-        "jasmine-core": "^2.4.1",
-        "jasmine-node": "^1.14.5",
-        "typings": "^1.0.5"
-    },
-    "dependencies": {
-        "bootstrap": "^3.3.6",
-        "react": "^15.1.0",
-        "react-dom": "^15.1.0",
-        "react-router": "^2.4.1"
-    },
-    "scripts": {
-        "install": "typings install react --save && typings install dt~jasmine dt~react-dom --global --save", 
-        "build": "babel src frontend -d obj && cp static/* obj/",
-        "prestart": "npm run build && webpack -p",
-        "start": "node ./obj/app.js",
-        "test": "npm run build && jasmine-node obj/",
-        "clean": "rm -rf obj"
-    }
+  "name": "website-template",
+  "version": "0.0.0",
+  "typings": "./typings/index.d.ts",
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "file-loader": "0.8.5",
+    "jasmine": "^2.4.1",
+    "jasmine-core": "^2.4.1",
+    "jasmine-node": "^1.14.5",
+    "jsx-loader": "0.13.2",
+    "typings": "^1.0.5",
+    "webpack": "^1.13.1"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-router": "^2.4.1"
+  },
+  "scripts": {
+    "install": "typings install react --save && typings install dt~jasmine dt~react-dom --global --save",
+    "prestart": "webpack -p",
+    "start": "cd obj; node ./app.js",
+    "test": "babel src frontend -d obj && jasmine-node obj/",
+    "clean": "rm -rf obj"
+  }
 }

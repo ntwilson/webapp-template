@@ -8,6 +8,7 @@ export function start(route) {
     route(pathname, response, request);
   }
   
-  http.createServer(onRequest).listen(8888);
-  console.log("Server has started.");
+  let port = 8888;
+  http.createServer(onRequest).listen(port);
+  console.log(`Server has started on port ${port}.`);
 }
