@@ -1,6 +1,6 @@
 module.exports = {
-  context: __dirname + "/obj",
-  entry: './index.js',
+  context: __dirname,
+  entry: './frontend/index.js',
   output: {
     filename: 'bundle.js',
     path: __dirname + "/obj"
@@ -9,7 +9,7 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
-        loader: 'jsx-loader',
+        loader: 'babel-loader',
         exclude: /node_modules/,
       },
       {
