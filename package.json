@@ -23,9 +23,8 @@
   },
   "scripts": {
     "install": "typings install react --save && typings install dt~jasmine dt~react-dom --global --save",
-    "build": "babel src -d obj && cp static/* obj/",
-    "prestart": "npm run build && webpack -p",
-    "start": "node ./obj/app.js",
+    "prestart": "webpack -p",
+    "start": "cd obj; node ./app.js",
     "test": "babel src frontend -d obj && jasmine-node obj/",
     "clean": "rm -rf obj"
   }
