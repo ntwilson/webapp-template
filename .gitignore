@@ -10,4 +10,6 @@ node_modules/
 typings/
 typings.json
 
-![Oo]bj/index.html
+elm-stuff/
+
+**/*.log

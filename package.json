@@ -17,8 +17,9 @@
         "react-dom": "^15.1.0"
     },
     "scripts": {
+        "build": "elm make frontend/Main.elm --output=obj/index.html",
         "install": "typings install react --save && typings install dt~react-dom --global --save", 
-        "prestart": "babel src frontend -d obj && webpack -p",
+        "prestart": "babel src frontend -d obj && run build && webpack -p",
         "start": "node ./obj/app.js"
     }
 }
