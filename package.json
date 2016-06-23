@@ -19,7 +19,7 @@
     "scripts": {
         "build": "elm make frontend/Main.elm --output=obj/index.html",
         "install": "typings install react --save && typings install dt~react-dom --global --save", 
-        "prestart": "babel src frontend -d obj && run build && webpack -p",
+        "prestart": "babel src frontend -d obj && npm run build && webpack -p",
         "start": "node ./obj/app.js"
     }
 }
