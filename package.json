@@ -24,7 +24,7 @@
   "scripts": {
     "install": "typings install react --save && typings install dt~jasmine dt~react-dom --global --save",
     "prestart": "webpack -p",
-    "start": "cd obj; node ./app.js",
+    "start": "cd obj && node ./app.js",
     "test": "babel src frontend -d obj && jasmine-node obj/",
     "clean": "rm -rf obj"
   }
