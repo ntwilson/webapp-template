@@ -25,9 +25,11 @@
   "scripts": {
     "install": "typings install react --save && typings install dt~jasmine dt~react-dom --global --save",
     "build-elm": "elm-make frontend/Lib.elm --output=obj/Lib.js",
+    "build-elm-tests": "elm-make src/TestRunner.elm --output=obj/test.js",
+    "build-babel-tests": "babel src frontend -d obj",
     "prestart": "webpack -p",
     "start": "cd obj && node ./app.js",
-    "test": "babel src frontend -d obj && jasmine-node obj/",
+    "test": "npm run build-babel-tests && npm run build-elm-tests && jasmine-node obj/ && node obj/test.js",
     "clean": "rm -rf obj"
   }
 }

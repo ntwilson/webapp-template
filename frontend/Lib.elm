@@ -2,9 +2,7 @@ port module ElmLib exposing (..)
 
 import Html.App exposing (..)
 import Html exposing (..)
-
-getTestMessage : String -> String
-getTestMessage msg = msg ++ " from elm!!" 
+import Messaging exposing (getTestMessage)
 
 port dispatchGetTestMessage : (String -> msg) -> Sub msg
 port testMessage : String -> Cmd msg
