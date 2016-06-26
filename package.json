@@ -29,7 +29,9 @@
     "build-babel-tests": "babel src frontend -d obj",
     "prestart": "webpack -p",
     "start": "cd obj && node ./app.js",
-    "test": "npm run build-babel-tests && npm run build-elm-tests && jasmine-node obj/ && node obj/test.js",
+    "elm-tests": "npm run build-elm-tests && node obj/test.js",
+    "babel-tests": "npm run build-babel-tests && jasmine-node obj/",
+    "test": "npm run babel-tests && npm run elm-tests",
     "clean": "rm -rf obj"
   }
 }
