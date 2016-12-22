@@ -1,28 +1,31 @@
 port module ElmLib exposing (..)
 
-import Html.App exposing (..)
-import Html exposing (..)
+import Platform
 import Messaging exposing (getTestMessage)
+import Json.Decode
 
-port dispatchGetTestMessage : (String -> msg) -> Sub msg
-port testMessage : String -> Cmd msg
+port js2ElmTestMessage : (String -> msg) -> Sub msg
+port elm2JsTestMessage : String -> Cmd msg
+port js2ElmTestInt : (Int -> msg) -> Sub msg
+port elm2JsTestInt : Int -> Cmd msg
 
-main = Html.App.program 
-  { init = init, 
+main = Platform.program 
+  { init = ({ }, Cmd.none), 
     update = update, 
-    subscriptions = subscriptions, 
-    view = view }
+    subscriptions = subscriptions }
 
-type Msg = GetTestMessage String
+type ActionType = 
+  GetTestMessage String
+  | GetTestInt Int
 
-update msg model = 
-  case msg of 
+update action model = 
+  case action of 
     GetTestMessage str ->
-      (model, testMessage (getTestMessage str))
+      let result = getTestMessage str
+      in (model, elm2JsTestMessage result)
+    GetTestInt i ->
+      let result = i + 5
+      in (model, elm2JsTestInt result)
 
-subscriptions model = 
-  dispatchGetTestMessage GetTestMessage
-
-init = ({ }, Cmd.none)
-
-view model = text ""
+subscriptions _ = 
+  Sub.batch [ js2ElmTestMessage GetTestMessage, js2ElmTestInt GetTestInt ]
