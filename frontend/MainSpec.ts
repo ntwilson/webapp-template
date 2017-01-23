@@ -1,4 +1,4 @@
-import Main from './Main';
+import { Main } from './Main';
 
 describe('Main', () => {
     it('renders some contents', () => {

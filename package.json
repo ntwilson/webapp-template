@@ -1,38 +1,34 @@
 {
   "name": "website-template",
   "version": "0.0.0",
-  "typings": "./typings/index.d.ts",
   "devDependencies": {
-    "babel-cli": "^6.10.1",
-    "babel-loader": "^6.2.4",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-preset-react": "^6.5.0",
-    "elm": "^0.18.0",
+    "@types/jasmine": "^2.5.41",
+    "@types/node": "^7.0.0",
+    "@types/react": "^15.0.1",
+    "@types/react-dom": "^0.14.20",
+    "@types/react-router": "^2.0.45",
     "file-loader": "0.8.5",
     "jasmine": "^2.4.1",
     "jasmine-core": "^2.4.1",
     "jasmine-node": "^1.14.5",
-    "jsx-loader": "0.13.2",
-    "typings": "^1.0.5",
+    "jsx-loader": "^0.13.2",
+    "ts-loader": "^2.0.0",
+    "typescript": "^2.1.5",
     "webpack": "^1.13.1"
   },
   "dependencies": {
     "bootstrap": "^3.3.6",
+    "immutable": "^3.8.1",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-router": "^2.4.1"
   },
   "scripts": {
-    "install": "typings install react react-dom --save && typings install dt~jasmine --global --save",
-    "build-elm": "elm-make frontend/Lib.elm --output=obj/Lib.js",
-    "build-elm-tests": "elm-make src/TestRunner.elm --output=obj/test.js",
-    "build-babel-tests": "babel src frontend -d obj",
-    "build": "npm run build-elm && webpack",
-    "build-prod": "npm run build-elm && webpack -p",
+    "build-tests": "tsc --outDir obj",
+    "build": "webpack",
+    "build-prod": "webpack -p",
     "start": "cd obj && node ./app.js",
-    "elm-tests": "npm run build-elm-tests && node obj/test.js",
-    "babel-tests": "npm run build-babel-tests && jasmine-node obj/",
-    "test": "npm run babel-tests && npm run elm-tests",
+    "test": "npm run build-tests && jasmine-node obj/",
     "clean": "rm -rf obj"
   }
 }
