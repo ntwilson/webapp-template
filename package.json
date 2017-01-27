@@ -17,7 +17,9 @@
     "webpack": "^1.13.1"
   },
   "dependencies": {
+    "@types/express": "^4.0.35",
     "bootstrap": "^3.3.6",
+    "express": "^4.14.0",
     "immutable": "^3.8.1",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
