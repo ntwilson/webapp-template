@@ -11,7 +11,8 @@
     "jasmine": "^2.4.1",
     "jasmine-core": "^2.4.1",
     "jasmine-node": "^1.14.5",
-    "jsx-loader": "^0.13.2",
+    "jsx-loader": "0.13.2",
+    "electron-prebuilt": "^1.2.5",
     "ts-loader": "^2.0.0",
     "typescript": "^2.1.5",
     "webpack": "^1.13.1"
@@ -26,10 +27,11 @@
     "react-router": "^2.4.1"
   },
   "scripts": {
-    "build-tests": "tsc --outDir obj",
     "build": "webpack",
     "build-prod": "webpack -p",
+    "build-tests": "tsc --outDir obj",
     "start": "cd obj && node ./app.js",
+    "start-desktop": "electron static/main.js",
     "test": "npm run build-tests && jasmine-node obj/",
     "clean": "rm -rf obj"
   }
