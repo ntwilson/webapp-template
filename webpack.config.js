@@ -42,7 +42,12 @@ module.exports = [
                     exclude: /node_modules/
                 },
                 {
-                    test: /\.(js|html|css)$/,
+                    test: /\.jsx?$/,
+                    loader: 'jsx-loader',
+                    exclude: /node_modules/
+                },
+                {
+                    test: /\.(html|css|json)$/,
                     loader: 'file-loader?name=[name].[ext]'
                 }
             ]
