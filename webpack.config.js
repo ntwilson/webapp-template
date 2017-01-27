@@ -3,7 +3,7 @@ module.exports = [
         name: "client",
         target: "web",
         context: __dirname,
-        entry: './frontend/index.js',
+        entry: './frontend/index.ts',
         output: {
             path: __dirname + "/obj",
             filename: 'bundle.js'
@@ -11,20 +11,25 @@ module.exports = [
         module: {
             loaders: [
                 {
+                    test: /\.tsx?$/,
+                    loader: 'ts-loader',
+                    exclude: /node_modules/
+                },
+                {
                     test: /\.jsx?$/,
-                    loader: 'babel-loader',
-                    exclude: /node_modules/,
+                    loader: 'jsx-loader',
+                    exclude: /node_modules/
                 }
             ]
         },
         resolve: {
-            extensions: ['', '.js', '.jsx']
+            extensions: ['', '.ts', '.tsx', '.js']
         }
     },
     {
         name: "server",
         target: "node",
-        entry: "./src/app.js",
+        entry: "./src/app.ts",
         output: {
             path: __dirname + "/obj",
             filename: "app.js"
@@ -32,18 +37,18 @@ module.exports = [
         module: {
             loaders: [
                 {
-                    test: /\.js$/,
-                    loader: 'babel-loader',
+                    test: /\.ts$/,
+                    loader: 'ts-loader',
                     exclude: /node_modules/
                 },
                 {
-                    test: /\.(html|css)$/,
+                    test: /\.(js|html|css)$/,
                     loader: 'file-loader?name=[name].[ext]'
                 }
             ]
         },
         resolve: {
-            extensions: ['', '.js', '.html', '.css']
+            extensions: ['', '.ts', '.js', '.html', '.css']
         }
     }
 ];

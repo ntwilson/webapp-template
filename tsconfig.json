@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "noImplicitAny": true,
+    "preserveConstEnums": true,
+    "removeComments": false,
+    "target": "ES5",
+    "strictNullChecks": true
+  },
+  "exclude": [
+    "obj",
+    "bin",
+    "node_modules"
+  ]
+}
