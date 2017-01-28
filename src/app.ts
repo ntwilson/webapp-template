@@ -11,9 +11,11 @@ app.use(
   })
 
 app.use(
-  express.static('./', { fallthrough: true }), 
-  express.static('../static', { fallthrough: true }),
-  (req:Request, res:Response) => 
-    res.status(404).send(`Sorry can't find that!`))
+  express.static('../static'),
+  express.static('./'), 
+  (req:Request, res:Response) => {
+    console.log(`404 - couldn't find request target`) 
+    res.status(404).send(`Sorry can't find that!`)
+  })
 
 app.listen(8080, () => console.log('listening on port 8080...'))

@@ -19,11 +19,15 @@ module.exports = [
                     test: /\.jsx?$/,
                     loader: 'jsx-loader',
                     exclude: /node_modules/
+                },
+                {
+                    test: /\.json$/,
+                    loader: 'json-loader'
                 }
             ]
         },
         resolve: {
-            extensions: ['', '.ts', '.tsx', '.js']
+            extensions: ['', '.ts', '.tsx', '.js', 'json']
         }
     },
     {
@@ -47,13 +51,17 @@ module.exports = [
                     exclude: /node_modules/
                 },
                 {
-                    test: /\.(html|css|json)$/,
+                    test: /\.json$/,
+                    loader: 'json-loader'
+                },
+                {
+                    test: /\.(html|css)$/,
                     loader: 'file-loader?name=[name].[ext]'
                 }
             ]
         },
         resolve: {
-            extensions: ['', '.ts', '.js', '.html', '.css']
+            extensions: ['', '.ts', '.js', 'json', '.html', '.css']
         }
     }
 ];
